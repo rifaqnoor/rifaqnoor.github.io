@@ -454,6 +454,10 @@ if (!io) fillBoard();
 // Sicherheitsnetz: nach 2,5 s alles sichtbar (Vorschaubilder, alte Browser)
 setTimeout(() => { document.querySelectorAll('.fade').forEach(el => el.classList.add('in')); fillBoard(); }, 2500);
 
+// Direktlink auf Datenschutz/Impressum: Abschnitt aufklappen
+function openFromHash() { const el = document.getElementById(location.hash.slice(1)); if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView(); } }
+addEventListener('hashchange', openFromHash); openFromHash();
+
 // Funkelnde Sterne über dem Panorama
 (function () {
   const canvas = document.getElementById('sky');
