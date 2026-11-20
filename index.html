@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="de" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rifaq Noor – Den Quran gemeinsam lesen</title>
+<meta name="description" content="Rifaq Noor: gemeinsame Khatma, Quran lesen und hören mit Mitlesen, Duas mit Ton, Gebetszeiten, Qibla, Qada und Tasbih. Kostenlos, ohne Werbung, ohne Konto.">
+<meta property="og:title" content="Rifaq Noor – Den Quran gemeinsam lesen">
+<meta property="og:description" content="Gemeinsame Khatma, Mitlesen beim Hören, Duas mit Ton. Kostenlos, ohne Werbung.">
+<meta property="og:image" content="https://rifaqnoor.github.io/bilder/himmel.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="bilder/logo.png">
+<link rel="apple-touch-icon" href="bilder/logo.png">
+<style>html,body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Marcellus&family=Inter:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600&display=swap">
+<style>
+/* Layout: Canva-Panorama als Nachthimmel-Kopf, darunter ruhige Pergament-Abschnitte; Gold nur für Licht und Wege */
+:root {
+  --night: #0b1f1b;
+  --emerald: #173e35;
+  --gold: #c9973e;
+  --gold-soft: #e7c98a;
+  --paper: #f6f3ea;
+  --card: #fffdf7;
+  --ink: #1c2420;
+  --muted: #5e6860;
+  --line: #e4dccb;
+  --display: "Marcellus", "Georgia", serif;
+  --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --arabic: "Amiri", "Geeza Pro", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --paper: #0f1f1b; --card: #152c26; --ink: #eef0ea; --muted: #a9b7ae; --line: #284a40; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --paper: #0f1f1b; --card: #152c26; --ink: #eef0ea; --muted: #a9b7ae; --line: #284a40; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+html[lang="ar"] body { font-family: "Noto Kufi Arabic", var(--body); }
+a { color: var(--gold); }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; margin: 0; }
+html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3 { font-family: var(--arabic); font-weight: 700; }
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); }
+p { margin: 0; }
+
+/* Kopf mit Panorama */
+.sky { position: relative; overflow: hidden; color: #fff; background: var(--night) url("bilder/himmel.jpg") center bottom / cover no-repeat; }
+.sky::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,26,22,.72) 0%, rgba(8,26,22,.35) 48%, rgba(8,26,22,0) 75%); pointer-events: none; }
+html[dir="rtl"] .sky::after { background: linear-gradient(270deg, rgba(8,26,22,.72) 0%, rgba(8,26,22,.35) 48%, rgba(8,26,22,0) 75%); }
+.sky canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+.sky > .wrap { position: relative; z-index: 2; }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; font-family: var(--display); font-size: 1.3rem; }
+.brand img { width: 40px; height: 40px; border-radius: 11px; }
+.nav nav { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+.nav nav a { color: rgba(255,255,255,.85); text-decoration: none; font-weight: 500; font-size: .95rem; }
+.nav nav a:hover, .nav nav a:focus-visible { color: var(--gold-soft); }
+.langs { display: inline-flex; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; overflow: hidden; }
+.langs button { all: unset; cursor: pointer; padding: 5px 10px; font-size: .8rem; font-weight: 600; color: rgba(255,255,255,.85); }
+.langs button[aria-pressed="true"] { background: var(--gold-soft); color: var(--emerald); }
+.langs button:focus-visible { outline: 2px solid var(--gold-soft); }
+.hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: center; padding-block: 40px 90px; }
+.hero .ar { font-family: var(--arabic); font-size: clamp(2rem, 5vw, 3rem); color: var(--gold-soft); line-height: 1.3; }
+.hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.08; margin-top: 4px; text-shadow: 0 2px 24px rgba(0,0,0,.35); }
+.hero p.lead { margin-top: 16px; font-size: 1.12rem; color: rgba(255,255,255,.9); max-width: 36ch; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: transform .2s ease; }
+.btn.gold { background: var(--gold-soft); color: var(--emerald); box-shadow: 0 8px 30px rgba(231,201,138,.35); }
+.btn.ghost { border: 1px solid rgba(255,255,255,.45); color: #fff; backdrop-filter: blur(4px); }
+.btn:hover { transform: translateY(-2px); }
+.btn:focus-visible { outline: 3px solid var(--gold-soft); outline-offset: 3px; }
+.badges { margin-top: 18px; font-size: .85rem; color: rgba(255,255,255,.75); letter-spacing: .04em; }
+.phone { justify-self: center; width: min(290px, 80vw); aspect-ratio: 9 / 18.5; max-width: 100%; border-radius: 42px; padding: 10px; background: linear-gradient(160deg, #3a6b5b, #0b1f1b); box-shadow: 0 30px 70px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.14); animation: float 7s ease-in-out infinite; }
+@keyframes float { 50% { transform: translateY(-10px); } }
+.screen { height: 100%; border-radius: 34px; overflow: hidden; background: #f6f3ea; display: flex; flex-direction: column; color: #1c2420; }
+.screen .head { padding: 24px 16px 14px; background: linear-gradient(135deg, #173e35, #0b1f1b); color: #fff; }
+.screen .head .a { font-family: var(--arabic); font-size: 1.2rem; color: var(--gold-soft); }
+.screen .head b { display: block; font-family: var(--display); font-weight: 400; font-size: 1.3rem; }
+.screen .card { margin: 10px 12px 0; padding: 11px 13px; border-radius: 16px; background: #fffdf7; box-shadow: 0 6px 18px rgba(23,62,53,.08); }
+.screen .card small { color: #285748; font-weight: 700; letter-spacing: .08em; font-size: .6rem; }
+.screen .card b { display: block; font-family: var(--display); font-weight: 400; font-size: 1.15rem; }
+.screen .card span { color: #5e6860; font-size: .8rem; }
+.juz { display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; margin-top: 8px; }
+.juz i { height: 9px; border-radius: 3px; background: #e4dccb; }
+.juz i.r { background: #285748; } .juz i.g { background: #e7c98a; }
+.verse { direction: rtl; text-align: right; font-family: var(--arabic); font-size: 1.25rem; line-height: 1.6; }
+.verse mark { background: #e7c98a; color: #173e35; border-radius: 4px; padding: 0 3px; animation: glow 2.4s ease-in-out infinite; }
+@keyframes glow { 50% { background: #f3dfae; } }
+.screen .mini { margin: auto 12px 12px; padding: 10px 13px; border-radius: 16px; background: #173e35; color: #fff; font-size: .74rem; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+
+/* Abschnitte */
+section { padding-block: 72px; }
+.eyebrow { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+html[lang="ar"] .eyebrow { letter-spacing: 0; }
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 30px; }
+.photo { position: relative; border-radius: 26px; overflow: hidden; min-height: 300px; background: var(--emerald); }
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.03); transition: transform 6s ease; }
+.photo:hover img { transform: scale(1.1); }
+.photo .txt { position: absolute; inset: auto 0 0 0; padding: 22px; color: #fff; background: linear-gradient(0deg, rgba(11,31,27,.94), rgba(11,31,27,0)); }
+.photo .txt h3 { font-size: 1.5rem; }
+.photo .txt p { color: rgba(255,255,255,.88); margin-top: 4px; }
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
+.ico { width: 46px; height: 46px; background: var(--gold); -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat; }
+.feature:hover .ico { background: var(--emerald); }
+html[data-theme="dark"] .feature:hover .ico { background: var(--gold-soft); }
+.feature { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; min-width: 0; }
+.feature .a { font-family: var(--arabic); font-size: 1.5rem; color: var(--gold); line-height: 1; }
+.feature h3 { font-size: 1.15rem; margin-top: 10px; }
+.feature p { margin-top: 6px; color: var(--muted); font-size: .95rem; }
+.word { background: var(--card); border: 1px solid var(--gold-soft); border-radius: 26px; padding: 30px; max-width: 760px; margin: 0 auto; }
+.word p { font-size: 1.12rem; margin-top: 12px; }
+.word .sig { color: var(--gold); font-weight: 700; }
+.thanks { text-align: center; }
+.thanks p { color: var(--muted); max-width: 60ch; margin: 12px auto 0; }
+.download { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 26px; }
+.dl { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 22px; min-width: 0; }
+.dl h3 { font-size: 1.3rem; }
+.dl p { color: var(--muted); margin-top: 6px; }
+.dl .btn { margin-top: 14px; background: var(--emerald); color: #fff; }
+details { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px 20px; margin-top: 10px; }
+summary { cursor: pointer; font-weight: 600; }
+details > p, details > div { margin-top: 8px; color: var(--muted); }
+.legal h4 { margin: 18px 0 4px; font-size: 1rem; color: var(--ink); }
+.legal p, .legal li { color: var(--ink); }
+.legal ul { padding-inline-start: 20px; margin: 6px 0; }
+.steps-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; margin-top: 30px; }
+.steps { display: grid; gap: 14px; counter-reset: s; }
+.step { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 16px 18px; }
+.step::before { counter-increment: s; content: counter(s); display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--emerald); color: var(--gold-soft); font-family: var(--display); font-size: 1.3rem; }
+.step h3 { font-size: 1.15rem; }
+.step p { color: var(--muted); margin-top: 2px; }
+.board { background: linear-gradient(160deg, #173e35, #0b1f1b); border-radius: 28px; padding: 24px; color: #fff; box-shadow: 0 24px 60px rgba(11,31,27,.35); }
+.board b { font-family: var(--display); font-weight: 400; font-size: 1.4rem; }
+.board .bar { height: 8px; border-radius: 99px; background: rgba(255,255,255,.12); margin: 12px 0 16px; overflow: hidden; }
+.board .bar i { display: block; height: 100%; width: 0; background: var(--gold-soft); transition: width 1.2s ease; }
+.grid30 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.grid30 span { aspect-ratio: 1; border-radius: 10px; display: grid; place-items: center; font-size: .82rem; font-weight: 600; background: rgba(255,255,255,.08); color: rgba(255,255,255,.7); transition: background .4s ease, color .4s ease, transform .4s ease; font-variant-numeric: tabular-nums; }
+.grid30 span.r { background: #285748; color: #fff; }
+.grid30 span.g { background: var(--gold-soft); color: var(--emerald); transform: scale(1.04); }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 14px; font-size: .8rem; color: rgba(255,255,255,.75); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-inline-end: 6px; vertical-align: -1px; }
+.fade { opacity: .001; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+.fade.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .fade { opacity: 1; transform: none; transition: none; } .grid30 span, .board .bar i { transition: none; } }
+@media (max-width: 900px) { .steps-wrap { grid-template-columns: 1fr; } }
+footer { background: var(--night); color: rgba(255,255,255,.75); padding-block: 30px; font-size: .92rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 14px 24px; justify-content: space-between; }
+footer a { color: var(--gold-soft); text-decoration: none; }
+.reveal { animation: rise .9s ease both; }
+@keyframes rise { from { opacity: .001; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .reveal, .phone, .verse mark { animation: none; } .photo img, .btn { transition: none; } }
+@media (max-width: 900px) { .hero { grid-template-columns: 1fr; padding-block: 20px 60px; } .features { grid-template-columns: 1fr 1fr; } .duo, .download { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .features { grid-template-columns: 1fr; } }
+</style>
+
+<header class="sky">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="wrap nav">
+    <a class="brand" href="#start"><img src="bilder/logo.png" alt="">Rifaq Noor</a>
+    <nav aria-label="Navigation">
+      <a href="#funktionen" data-k="nav1"></a>
+      <a href="#download" data-k="nav2"></a>
+      <a href="#hilfe" data-k="nav3"></a>
+      <span class="langs" role="group" aria-label="Sprache">
+        <button data-lang="de" aria-pressed="true">DE</button><button data-lang="en">EN</button><button data-lang="fr">FR</button><button data-lang="ar">ع</button>
+      </span>
+    </nav>
+  </div>
+  <div class="wrap hero" id="start">
+    <div class="reveal">
+      <div class="ar">رفاق النور</div>
+      <h1 data-k="h1"></h1>
+      <p class="lead" data-k="lead"></p>
+      <div class="cta">
+        <a class="btn gold" href="#download" data-k="cta1"></a>
+        <a class="btn ghost" href="#funktionen" data-k="cta2"></a>
+      </div>
+      <div class="badges" data-k="badges"></div>
+    </div>
+    <div class="phone reveal" aria-hidden="true">
+      <div class="screen">
+        <div class="head"><span class="a">السلام عليكم</span><b data-k="m_greet"></b></div>
+        <div class="card"><small data-k="m_kh"></small><b data-k="m_khname"></b><span data-k="m_khstate"></span>
+          <div class="juz" id="juz"></div></div>
+        <div class="card"><small data-k="m_read"></small><div class="verse">ٱلْحَمْدُ <mark>لِلَّهِ</mark> رَبِّ ٱلْعَٰلَمِينَ</div><span data-k="m_verse"></span></div>
+        <div class="mini"><span data-k="m_player"></span><span>❚❚</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="funktionen">
+    <div class="wrap">
+      <div class="eyebrow" data-k="f_eye"></div>
+      <h2 data-k="f_h2"></h2>
+      <div class="duo">
+        <div class="photo fade"><img src="bilder/quran_mushaf.jpg" alt=""><div class="txt"><h3 data-k="d1h"></h3><p data-k="d1p"></p></div></div>
+        <div class="photo fade"><img src="bilder/dua_banner.jpg" alt=""><div class="txt"><h3 data-k="d2h"></h3><p data-k="d2p"></p></div></div>
+      </div>
+      <div class="features">
+        <div class="feature fade"><div class="ico" style="--i:url(icons/gebetszeiten.svg)"></div><h3 data-k="f1h"></h3><p data-k="f1p"></p></div>
+        <div class="feature fade"><div class="ico" style="--i:url(icons/qada.svg)"></div><h3 data-k="f5h"></h3><p data-k="f5p"></p></div>
+        <div class="feature fade"><div class="ico" style="--i:url(icons/dua.svg)"></div><h3 data-k="f2h"></h3><p data-k="f2p"></p></div>
+        <div class="feature fade"><div class="ico" style="--i:url(icons/qibla.svg)"></div><h3 data-k="f3h"></h3><p data-k="f3p"></p></div>
+        <div class="feature fade"><div class="ico" style="--i:url(icons/tasbih.svg)"></div><h3 data-k="f4h"></h3><p data-k="f4p"></p></div>
+        <div class="feature fade"><div class="ico" style="--i:url(icons/kalender.svg)"></div><h3 data-k="f6h"></h3><p data-k="f6p"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="khatma">
+    <div class="wrap">
+      <div class="eyebrow" data-k="k_eye"></div>
+      <h2 data-k="k_h2"></h2>
+      <div class="steps-wrap">
+        <div class="steps">
+          <div class="step fade"><div><h3 data-k="k1h"></h3><p data-k="k1p"></p></div></div>
+          <div class="step fade"><div><h3 data-k="k2h"></h3><p data-k="k2p"></p></div></div>
+          <div class="step fade"><div><h3 data-k="k3h"></h3><p data-k="k3p"></p></div></div>
+        </div>
+        <div class="board fade" aria-hidden="true">
+          <b data-k="m_khname"></b>
+          <div class="bar"><i id="bar"></i></div>
+          <div class="grid30" id="grid30"></div>
+          <div class="legend"><span><i style="background:#285748"></i><span data-k="lg1"></span></span><span><i style="background:#e7c98a"></i><span data-k="lg2"></span></span><span><i style="background:rgba(255,255,255,.2)"></i><span data-k="lg3"></span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="word fade">
+        <div class="eyebrow" data-k="w_eye"></div>
+        <p data-k="w_text"></p>
+        <p class="sig" data-k="w_sig"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="thanks">
+    <div class="wrap">
+      <div class="eyebrow" data-k="t_eye"></div>
+      <h2>Sirat Guide</h2>
+      <p data-k="t_text"></p>
+      <p style="font-size:.9rem" data-k="t_qc"></p>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap">
+      <div class="eyebrow" data-k="dl_eye"></div>
+      <h2 data-k="dl_h2"></h2>
+      <div class="download">
+        <div class="dl fade"><h3 data-k="dl1h"></h3><p data-k="dl1p"></p><a class="btn" href="https://testflight.apple.com/join/KbdRWTQk" data-k="dl1b"></a></div>
+        <div class="dl fade"><h3>Android</h3><p data-k="dl2p"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hilfe">
+    <div class="wrap">
+      <div class="eyebrow" data-k="h_eye"></div>
+      <h2 data-k="h_h2"></h2>
+      <details><summary data-k="q1"></summary><p data-k="a1"></p></details>
+      <details><summary data-k="q2"></summary><p data-k="a2"></p></details>
+      <details><summary data-k="q3"></summary><p data-k="a3"></p></details>
+      <details><summary data-k="q4"></summary><p data-k="a4"></p></details>
+      <details id="datenschutz" class="legal"><summary data-k="ds"></summary><div data-k="ds_text"></div></details>
+      <details id="impressum" class="legal"><summary data-k="imp"></summary><div data-k="imp_text"></div></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-k="foot"></span>
+    <span><a href="#datenschutz" data-k="ds"></a> · <a href="#impressum" data-k="imp"></a></span>
+  </div>
+</footer>
+
+<script>
+const T = {
+de: {
+ k_eye:"Gemeinsame Khatma", k_h2:"In drei Schritten zur Khatma", k1h:"Khatma anlegen", k1p:"Gib ihr einen Namen und auf Wunsch ein Bild. Ein Konto brauchst du nicht.", k2h:"Link teilen", k2p:"Schick den Einladungslink über WhatsApp, Telegram oder eine andere App.", k3h:"Jeder liest seinen Juz", k3p:"Alle nehmen sich einen freien Juz und markieren ihn als gelesen. Den Stand seht ihr live.", lg1:"gelesen", lg2:"wird gelesen", lg3:"frei",
+ nav1:"Funktionen", nav2:"Download", nav3:"Hilfe",
+ h1:"Den Quran gemeinsam lesen",
+ lead:"Teilt die 30 Juz mit Familie und Freunden und seht live, wer was liest. Beim Hören leuchtet jedes Wort mit, die Seite blättert von selbst. Kostenlos, ohne Werbung, ohne Konto.",
+ cta1:"Jetzt testen", cta2:"Was die App kann", badges:"iPhone · iPad · Android · Deutsch · English · Français · العربية",
+ m_greet:"Gesegneten Freitag", m_kh:"GEMEINSAME KHATMA", m_khname:"Familie & Freunde", m_khstate:"18 von 30 Juz gelesen · 7 vergeben", m_read:"MITLESEN", m_verse:"Al-Fatihah · Vers 2", m_player:"Sure 1 · Vers 2 · Mishary Alafasy",
+ f_eye:"Funktionen", f_h2:"Gemeinsam lesen, Wort für Wort mitlesen",
+ d1h:"Gemeinsame Khatma", d1p:"Khatma anlegen, Link teilen, fertig. Jeder nimmt sich einen freien Juz, alle sehen den Stand live. Ohne Konto und ohne Telefonnummer.",
+ d2h:"Mitlesen beim Hören", d2p:"Das gesprochene Wort leuchtet gold, die Seite blättert mit, auch auf dem Sperrbildschirm. Bei Duas wie Kumayl läuft die Markierung Zeile für Zeile mit.",
+ f1h:"Gebetszeiten", f1p:"Für deinen Ort, mit 14 Berechnungsarten: Jaʿfari (Leva-Institut, Qom), Universität Teheran, Muslim World League, Umm al-Qura, Diyanet, ISNA, Ägypten, Karachi, UOIF, Golf, Kuwait, Katar, Singapur und Russland. Ein Sonnenbogen zeigt, wo der Tag steht.",
+ f2h:"Duas mit Ton", f2p:"Kumayl, Tawassul, Nudba und viele mehr, gelesen von Hussein Ghurayeb.",
+ f3h:"Qibla", f3p:"Ein Kompass, der dir zeigt, in welche Richtung die Kaaba liegt.",
+ f4h:"Tasbih", f4p:"Eine Tasbih mit Perlen und Zähler, auch für Fatima-Tasbih.",
+ f5h:"Qada nachholen", f5p:"Verpasste Gebete und Fastentage zählen und Schritt für Schritt nachholen. Jahre oder Monate lassen sich auf einmal eintragen.",
+ f6h:"Islamischer Kalender", f6p:"Hijri-Datum und die Gedenktage des Jahres, mit Erinnerung am Vortag.",
+ w_eye:"Ein Wort von uns", w_text:"Rifaq Noor ist kostenlos, ohne Werbung und ohne Konto. Wir haben sie für unsere Familien, unsere Freunde und für euch gebaut und freuen uns über jeden, der sie öffnet. Am Ende zählen nur die guten Taten. Möge Allah eure und unsere Gebete annehmen.", w_sig:"– Das Team von Rifaq Noor",
+ t_eye:"Mit Dank", t_text:"Von Herzen danken wir Sirat Guide für den Quran, die Übersetzungen und die Duas mit ihren Aufnahmen. Möge Allah es ihnen reichlich vergelten.", t_qc:"Quran-Rezitationen und Wort-Zeiten: Quran.com",
+ dl_eye:"Download", dl_h2:"Jetzt ausprobieren",
+ dl1h:"iPhone und iPad", dl1p:"Die Testfassung gibt es über Apples TestFlight. TestFlight installieren, Link öffnen, Rifaq Noor laden.", dl1b:"Zur Testfassung",
+ dl2p:"Die Android-Fassung ist in der Testphase und kommt bald in den Play Store.",
+ h_eye:"Hilfe", h_h2:"Häufige Fragen",
+ q1:"Brauche ich ein Konto?", a1:"Nein. Alles funktioniert ohne Anmeldung. Für die gemeinsame Khatma vergibt die App im Hintergrund eine zufällige Kennung, ohne Namen, E-Mail oder Telefonnummer.",
+ q2:"Die Gebetszeiten stimmen für meinen Ort nicht.", a2:"Tippe in den Gebetszeiten auf den Ort und wähle „Meinen Standort verwenden“ oder suche deine Stadt.",
+ q3:"Läuft der Quran auch bei gesperrtem Bildschirm?", a3:"Ja. Die Steuerung erscheint auf dem Sperrbildschirm, und die Stelle wird gespeichert, auch wenn du die App schließt.",
+ q4:"Wie erreiche ich euch?", a4:"Schreib uns an info@venoqauto.de oder sende in der Testfassung ein Bildschirmfoto über TestFlight.",
+ ds:"Datenschutz", imp:"Impressum",
+ ds_text:`<h4>Kurz gesagt</h4><p>Rifaq Noor braucht kein Konto, zeigt keine Werbung und verwendet keine Analyse- oder Tracking-Dienste. Verantwortlich ist der im Impressum genannte Anbieter.</p>
+<h4>Was auf deinem Gerät bleibt</h4><ul><li>Lesestand, Lesezeichen, Hörstelle, Tasbih, Einstellungen und Khatmas, die du nicht online stellst.</li><li>Dein Standort, für Gebetszeiten und Qibla. Ortsname und Ortssuche ermittelt das Betriebssystem (Apple bzw. Google).</li><li>„Sure erkennen“ nutzt das Mikrofon nur, solange du es startest, über die Spracherkennung des Betriebssystems.</li></ul>
+<h4>Quran- und Dua-Inhalte</h4><p>Texte, Übersetzungen und Dua-Aufnahmen kommen über unseren eigenen Server (Cloudflare Workers). Dabei wird technisch deine IP-Adresse verarbeitet; wir speichern keine Protokolle. Die Anbieter der Inhalte sehen nur unseren Server. Quran-Rezitationen lädt die App direkt von den Rezitationsanbietern (Quran.com, EveryAyah), die dabei deine IP-Adresse erhalten.</p>
+<h4>Gemeinsame Khatma (nur wenn du sie online stellst)</h4><p>Dafür nutzen wir Google Firebase (anonyme Anmeldung, Firestore). Gespeichert werden Name der Khatma, dein angegebener Lesername, ein optionales Bild und der Stand der Juz. Wer den Link hat, sieht diese Angaben. Du kannst die Khatma jederzeit löschen. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO. Google kann Daten auch in den USA verarbeiten (EU-Standardvertragsklauseln bzw. EU-US Data Privacy Framework).</p>
+<h4>Testfassungen</h4><p>Bei TestFlight bzw. Firebase App Distribution verarbeiten Apple bzw. Google Angaben zu Installation, Abstürzen und Rückmeldungen, die du selbst sendest.</p>
+<h4>Deine Rechte</h4><p>Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch und Beschwerde bei einer Aufsichtsbehörde (z. B. Landesbeauftragter für den Datenschutz Baden-Württemberg). Kontakt: info@venoqauto.de</p><p style="color:var(--muted)">Stand: 20. November 2026</p>`,
+ imp_text:`<p style="color:var(--muted)">Angaben gemäß § 5 DDG</p><h4>Anbieter</h4><p>Mohamed Ali Hussein<br>Daimlerstraße 10<br>79585 Steinen, Deutschland</p><h4>Kontakt</h4><p>E-Mail: info@venoqauto.de</p><h4>Umsatzsteuer-ID</h4><p>DE402063042</p><h4>Streitbeilegung</h4><p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p><h4>Haftung</h4><p>Inhalte und berechnete Gebetszeiten wurden mit Sorgfalt erstellt; für Richtigkeit und Vollständigkeit können wir keine Gewähr übernehmen.</p>`,
+ foot:"© 2026 Rifaq Noor · kostenlos, ohne Werbung"
+},
+en: {
+ k_eye:"Shared khatma", k_h2:"A khatma in three steps", k1h:"Create a khatma", k1p:"Give it a name and, if you like, a picture. No account needed.", k2h:"Share the link", k2p:"Send the invite link via WhatsApp, Telegram or any other app.", k3h:"Everyone reads a juz", k3p:"Everyone takes a free juz and marks it as read. You all see the progress live.", lg1:"read", lg2:"being read", lg3:"free",
+ nav1:"Features", nav2:"Download", nav3:"Help",
+ h1:"Read the Quran together",
+ lead:"Share the 30 juz with family and friends and see live who reads what. While listening, every word lights up and the page turns by itself. Free, no ads, no account.",
+ cta1:"Try it now", cta2:"What the app does", badges:"iPhone · iPad · Android · Deutsch · English · Français · العربية",
+ m_greet:"Blessed Friday", m_kh:"SHARED KHATMA", m_khname:"Family & friends", m_khstate:"18 of 30 juz read · 7 taken", m_read:"READ ALONG", m_verse:"Al-Fatihah · verse 2", m_player:"Surah 1 · verse 2 · Mishary Alafasy",
+ f_eye:"Features", f_h2:"Read together, follow word by word",
+ d1h:"Shared khatma", d1p:"Create a khatma, share the link, done. Everyone picks a free juz and all see the progress live. No account, no phone number.",
+ d2h:"Read along while listening", d2p:"The spoken word glows gold and the page turns along, even on the lock screen. For duas like Kumayl the highlight follows line by line.",
+ f1h:"Prayer times", f1p:"For your location, with 14 calculation methods: Jaʿfari (Leva Institute, Qom), University of Tehran, Muslim World League, Umm al-Qura, Diyanet, ISNA, Egypt, Karachi, UOIF, Gulf, Kuwait, Qatar, Singapore and Russia. A sun arc shows where the day stands.",
+ f2h:"Duas with audio", f2p:"Kumayl, Tawassul, Nudba and many more, recited by Hussein Ghurayeb.",
+ f3h:"Qibla", f3p:"A compass that shows you the direction of the Kaaba.",
+ f4h:"Tasbih", f4p:"A tasbih with beads and a counter, also for the tasbih of Fatima.",
+ f5h:"Make up qada", f5p:"Count missed prayers and fasting days and make them up step by step. Enter years or months at once.",
+ f6h:"Islamic calendar", f6p:"Hijri date and the days of remembrance through the year.",
+ w_eye:"A word from us", w_text:"Rifaq Noor is free, without ads and without an account. We built it for our families, our friends and for you, and we are happy about everyone who opens it. In the end only good deeds count. May Allah accept your prayers and ours.", w_sig:"– The Rifaq Noor team",
+ t_eye:"With thanks", t_text:"We sincerely thank Sirat Guide for the Quran, the translations and the duas with their recordings. May Allah reward them abundantly.", t_qc:"Quran recitations and word timings: Quran.com",
+ dl_eye:"Download", dl_h2:"Try it now",
+ dl1h:"iPhone and iPad", dl1p:"The test version is available through Apple TestFlight. Install TestFlight, open the link, get Rifaq Noor.", dl1b:"Get the test version",
+ dl2p:"The Android version is in testing and is coming to Google Play soon.",
+ h_eye:"Help", h_h2:"Frequently asked questions",
+ q1:"Do I need an account?", a1:"No. Everything works without signing in. For the shared khatma the app uses a random ID in the background, without name, email or phone number.",
+ q2:"The prayer times are wrong for my location.", a2:"In prayer times, tap the location and choose “Use my location” or search for your city.",
+ q3:"Does the Quran keep playing when the screen is locked?", a3:"Yes. The controls appear on the lock screen and your place is saved, even when you close the app.",
+ q4:"How can I reach you?", a4:"Write to info@venoqauto.de or send a screenshot through TestFlight in the test version.",
+ ds:"Privacy", imp:"Legal notice",
+ ds_text:`<p>Rifaq Noor needs no account, shows no ads and uses no analytics or tracking. Your reading place, bookmarks, settings and location stay on your device. Quran and dua content is delivered through our own server (Cloudflare Workers) without stored logs; recitations load directly from Quran.com and EveryAyah. The shared khatma, only when you put it online, uses Google Firebase (anonymous sign-in, Firestore) to store the khatma name, your reader name, an optional picture and the juz status; you can delete it at any time. You have the rights of access, rectification, erasure, restriction, portability and objection under the GDPR. Contact: info@venoqauto.de. The German version is legally binding.</p>`,
+ imp_text:`<p>Mohamed Ali Hussein<br>Daimlerstraße 10<br>79585 Steinen, Germany<br>Email: info@venoqauto.de<br>VAT ID: DE402063042</p>`,
+ foot:"© 2026 Rifaq Noor · free, no ads"
+},
+fr: {
+ k_eye:"Khatma partagée", k_h2:"Une khatma en trois étapes", k1h:"Créer une khatma", k1p:"Donnez-lui un nom et, si vous voulez, une image. Aucun compte nécessaire.", k2h:"Partager le lien", k2p:"Envoyez le lien d’invitation par WhatsApp, Telegram ou une autre app.", k3h:"Chacun lit son juz", k3p:"Chacun prend un juz libre et le marque comme lu. Tous voient l’avancement en direct.", lg1:"lu", lg2:"en lecture", lg3:"libre",
+ nav1:"Fonctions", nav2:"Télécharger", nav3:"Aide",
+ h1:"Lire le Coran ensemble",
+ lead:"Partagez les 30 juz avec votre famille et vos amis et voyez en direct qui lit quoi. À l’écoute, chaque mot s’illumine et la page se tourne toute seule. Gratuit, sans publicité, sans compte.",
+ cta1:"Essayer maintenant", cta2:"Ce que fait l’app", badges:"iPhone · iPad · Android · Deutsch · English · Français · العربية",
+ m_greet:"Vendredi béni", m_kh:"KHATMA PARTAGÉE", m_khname:"Famille et amis", m_khstate:"18 juz sur 30 lus · 7 attribués", m_read:"LECTURE SUIVIE", m_verse:"Al-Fatihah · verset 2", m_player:"Sourate 1 · verset 2 · Mishary Alafasy",
+ f_eye:"Fonctions", f_h2:"Lire ensemble, suivre mot à mot",
+ d1h:"Khatma partagée", d1p:"Créez une khatma, partagez le lien, c’est tout. Chacun prend un juz libre, tous voient l’avancement en direct. Sans compte ni numéro de téléphone.",
+ d2h:"Lire en écoutant", d2p:"Le mot récité brille en or et la page se tourne, même sur l’écran verrouillé. Pour des douas comme Kumayl, le surlignage suit ligne par ligne.",
+ f1h:"Heures de prière", f1p:"Pour votre lieu, avec 14 méthodes de calcul : jaʿfari (Institut Leva, Qom), Université de Téhéran, Ligue islamique mondiale, Umm al-Qura, Diyanet, ISNA, Égypte, Karachi, UOIF, Golfe, Koweït, Qatar, Singapour et Russie. Un arc solaire montre où en est la journée.",
+ f2h:"Douas avec audio", f2p:"Kumayl, Tawassul, Nudba et bien d’autres, récitées par Hussein Ghurayeb.",
+ f3h:"Qibla", f3p:"Une boussole qui indique la direction de la Kaaba.",
+ f4h:"Tasbih", f4p:"Un tasbih avec perles et compteur, aussi pour le tasbih de Fatima.",
+ f5h:"Rattraper les qada", f5p:"Comptez les prières et jours de jeûne manqués et rattrapez-les pas à pas. Saisissez des années ou des mois d’un coup.",
+ f6h:"Calendrier islamique", f6p:"Date hégirienne et jours de commémoration de l’année.",
+ w_eye:"Un mot de notre part", w_text:"Rifaq Noor est gratuite, sans publicité et sans compte. Nous l’avons créée pour nos familles, nos amis et pour vous, et nous nous réjouissons de chaque personne qui l’ouvre. Au final, seules les bonnes actions comptent. Qu’Allah accepte vos prières et les nôtres.", w_sig:"– L’équipe de Rifaq Noor",
+ t_eye:"Avec nos remerciements", t_text:"Nous remercions de tout cœur Sirat Guide pour le Coran, les traductions et les douas avec leurs enregistrements. Qu’Allah les récompense abondamment.", t_qc:"Récitations du Coran et minutage des mots : Quran.com",
+ dl_eye:"Télécharger", dl_h2:"Essayez maintenant",
+ dl1h:"iPhone et iPad", dl1p:"La version de test est disponible via Apple TestFlight. Installez TestFlight, ouvrez le lien, téléchargez Rifaq Noor.", dl1b:"Version de test",
+ dl2p:"La version Android est en phase de test et arrive bientôt sur Google Play.",
+ h_eye:"Aide", h_h2:"Questions fréquentes",
+ q1:"Ai-je besoin d’un compte ?", a1:"Non. Tout fonctionne sans inscription. Pour la khatma partagée, l’app utilise en arrière-plan un identifiant aléatoire, sans nom, e-mail ni numéro.",
+ q2:"Les heures de prière ne correspondent pas à mon lieu.", a2:"Dans les heures de prière, touchez le lieu et choisissez « Utiliser ma position » ou recherchez votre ville.",
+ q3:"Le Coran continue-t-il quand l’écran est verrouillé ?", a3:"Oui. Les commandes apparaissent sur l’écran verrouillé et la position est enregistrée, même si vous fermez l’app.",
+ q4:"Comment vous joindre ?", a4:"Écrivez à info@venoqauto.de ou envoyez une capture via TestFlight dans la version de test.",
+ ds:"Confidentialité", imp:"Mentions légales",
+ ds_text:`<p>Rifaq Noor ne nécessite aucun compte, n’affiche aucune publicité et n’utilise aucun outil d’analyse ou de suivi. Votre position de lecture, vos signets, réglages et votre localisation restent sur votre appareil. Les contenus du Coran et des douas passent par notre propre serveur (Cloudflare Workers) sans journaux enregistrés ; les récitations sont chargées directement depuis Quran.com et EveryAyah. La khatma partagée, uniquement si vous la mettez en ligne, utilise Google Firebase (connexion anonyme, Firestore) pour enregistrer le nom de la khatma, votre nom de lecteur, une image facultative et l’état des juz ; vous pouvez la supprimer à tout moment. Vous disposez des droits prévus par le RGPD. Contact : info@venoqauto.de. La version allemande fait foi.</p>`,
+ imp_text:`<p>Mohamed Ali Hussein<br>Daimlerstraße 10<br>79585 Steinen, Allemagne<br>E-mail : info@venoqauto.de<br>N° TVA : DE402063042</p>`,
+ foot:"© 2026 Rifaq Noor · gratuit, sans publicité"
+},
+ar: {
+ k_eye:"ختمة جماعية", k_h2:"الختمة في ثلاث خطوات", k1h:"أنشئ ختمة", k1p:"أعطها اسمًا وصورة إن شئت. لا حاجة إلى حساب.", k2h:"شارك الرابط", k2p:"أرسل رابط الدعوة عبر واتساب أو تيليغرام أو أي تطبيق آخر.", k3h:"كل واحد يقرأ جزءًا", k3p:"يختار كل واحد جزءًا متاحًا ويعلّمه مقروءًا، والجميع يرى التقدم مباشرة.", lg1:"مقروء", lg2:"قيد القراءة", lg3:"متاح",
+ nav1:"المزايا", nav2:"التحميل", nav3:"المساعدة",
+ h1:"لنقرأ القرآن معًا",
+ lead:"وزّعوا الأجزاء الثلاثين على العائلة والأصدقاء وتابعوا مباشرة من يقرأ ماذا. وأثناء الاستماع تضيء كل كلمة وتُقلب الصفحة تلقائيًا. مجاني، بلا إعلانات، بلا حساب.",
+ cta1:"جرّبه الآن", cta2:"ماذا يقدم التطبيق", badges:"iPhone · iPad · Android · Deutsch · English · Français · العربية",
+ m_greet:"جمعة مباركة", m_kh:"ختمة جماعية", m_khname:"العائلة والأصدقاء", m_khstate:"قُرئ 18 جزءًا من 30 · 7 محجوزة", m_read:"القراءة مع الاستماع", m_verse:"الفاتحة · الآية 2", m_player:"السورة 1 · الآية 2 · مشاري العفاسي",
+ f_eye:"المزايا", f_h2:"نقرأ معًا ونتابع كلمة بكلمة",
+ d1h:"ختمة جماعية", d1p:"أنشئ ختمة وشارك الرابط، وهذا كل شيء. يختار كل واحد جزءًا متاحًا، ويرى الجميع التقدم مباشرة. بلا حساب ولا رقم هاتف.",
+ d2h:"القراءة مع الاستماع", d2p:"تتوهج الكلمة المتلوّة بالذهبي وتُقلب الصفحة معها، حتى على شاشة القفل. وفي أدعية مثل كميل يتابع التظليل سطرًا بسطر.",
+ f1h:"أوقات الصلاة", f1p:"لمكانك، مع 14 طريقة حساب: الجعفري (مؤسسة ليفا، قم)، جامعة طهران، رابطة العالم الإسلامي، أم القرى، ديانت، ISNA، مصر، كراتشي، UOIF، الخليج، الكويت، قطر، سنغافورة وروسيا. ويبيّن قوس شمسي موضع اليوم.",
+ f2h:"أدعية بالصوت", f2p:"كميل والتوسل والندبة وغيرها، بصوت حسين غريب.",
+ f3h:"القبلة", f3p:"بوصلة تدلك على اتجاه الكعبة.",
+ f4h:"التسبيح", f4p:"مسبحة بخرز وعدّاد، ومنها تسبيح فاطمة.",
+ f5h:"قضاء الفوائت", f5p:"عدّ الصلوات وأيام الصيام الفائتة واقضها خطوة بخطوة، مع إدخال سنوات أو أشهر دفعة واحدة.",
+ f6h:"التقويم الإسلامي", f6p:"التاريخ الهجري ومناسبات السنة.",
+ w_eye:"كلمة منا", w_text:"رفاق النور مجاني، بلا إعلانات وبلا حساب. صنعناه لعائلاتنا وأصدقائنا ولكم، ونسعد بكل من يفتحه. في النهاية لا يبقى إلا العمل الصالح. تقبّل الله دعاءكم ودعاءنا.", w_sig:"– فريق رفاق النور",
+ t_eye:"مع الشكر", t_text:"نشكر Sirat Guide من القلب على القرآن والترجمات والأدعية مع تسجيلاتها. جزاهم الله خيرًا.", t_qc:"تلاوات القرآن وتوقيت الكلمات: Quran.com",
+ dl_eye:"التحميل", dl_h2:"جرّبه الآن",
+ dl1h:"آيفون وآيباد", dl1p:"النسخة التجريبية متاحة عبر TestFlight من Apple. ثبّت TestFlight وافتح الرابط ثم حمّل رفاق النور.", dl1b:"النسخة التجريبية",
+ dl2p:"نسخة أندرويد في مرحلة الاختبار وستصل قريبًا إلى Google Play.",
+ h_eye:"المساعدة", h_h2:"أسئلة شائعة",
+ q1:"هل أحتاج إلى حساب؟", a1:"لا. كل شيء يعمل دون تسجيل. وللختمة الجماعية يستخدم التطبيق معرّفًا عشوائيًا في الخلفية، بلا اسم أو بريد أو رقم هاتف.",
+ q2:"أوقات الصلاة غير صحيحة لمكاني.", a2:"في أوقات الصلاة اضغط على المكان واختر «استخدم موقعي» أو ابحث عن مدينتك.",
+ q3:"هل يستمر القرآن عند قفل الشاشة؟", a3:"نعم. تظهر أزرار التحكم على شاشة القفل ويُحفظ الموضع حتى لو أغلقت التطبيق.",
+ q4:"كيف أتواصل معكم؟", a4:"راسلونا على info@venoqauto.de أو أرسلوا لقطة شاشة عبر TestFlight في النسخة التجريبية.",
+ ds:"الخصوصية", imp:"بيانات الناشر",
+ ds_text:`<p>لا يحتاج رفاق النور إلى حساب، ولا يعرض إعلانات، ولا يستخدم أدوات تحليل أو تتبع. يبقى موضع القراءة والعلامات والإعدادات وموقعك على جهازك. تصل نصوص القرآن والأدعية عبر خادمنا الخاص (Cloudflare Workers) دون حفظ سجلات، وتُحمَّل التلاوات مباشرة من Quran.com وEveryAyah. أما الختمة الجماعية، فعند نشرها فقط، فتستخدم Google Firebase (تسجيل مجهول وFirestore) لحفظ اسم الختمة واسم القارئ وصورة اختيارية وحالة الأجزاء، ويمكنك حذفها في أي وقت. لك جميع الحقوق وفق اللائحة الأوروبية لحماية البيانات. للتواصل: info@venoqauto.de. النسخة الألمانية هي المعتمدة قانونيًا.</p>`,
+ imp_text:`<p>Mohamed Ali Hussein<br>Daimlerstraße 10<br>79585 Steinen, Germany<br>info@venoqauto.de<br>VAT: DE402063042</p>`,
+ foot:"© 2026 رفاق النور · مجاني وبلا إعلانات"
+}
+};
+function setLang(lang) {
+  const d = T[lang] || T.de;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-k]').forEach(el => { const v = d[el.dataset.k]; if (v != null) el.innerHTML = v; });
+  document.querySelectorAll('.langs button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+  try { localStorage.setItem('rn-lang', lang); } catch (e) {}
+}
+document.querySelectorAll('.langs button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+let start = 'de';
+try { start = localStorage.getItem('rn-lang') || (navigator.language || 'de').slice(0, 2); } catch (e) {}
+setLang(T[start] ? start : 'de');
+
+// 30 Juz im Handy: 18 gelesen, 7 vergeben, 5 frei
+const juz = document.getElementById('juz');
+for (let i = 0; i < 30; i++) { const el = document.createElement('i'); if (i < 18) el.className = 'r'; else if (i < 25) el.className = 'g'; juz.appendChild(el); }
+
+// Khatma-Raster: füllt sich beim Ansehen
+const g30 = document.getElementById('grid30');
+const cells = [];
+for (let i = 1; i <= 30; i++) { const c = document.createElement('span'); c.textContent = i; g30.appendChild(c); cells.push(c); }
+let filled = false;
+function fillBoard() {
+  if (filled) return; filled = true;
+  const order = [1,5,2,9,14,3,20,7,11,25,4,17,6,22,8,28,12,19];
+  order.forEach((n, k) => setTimeout(() => { cells[n - 1].className = 'r'; document.getElementById('bar').style.width = ((k + 1) / 30 * 100) + '%'; }, 120 * k));
+  [10,13,15,16,21,24,27].forEach((n, k) => setTimeout(() => { cells[n - 1].className = 'g'; }, 120 * order.length + 160 * k));
+}
+const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add('in');
+  if (e.target.classList.contains('board')) fillBoard();
+  io.unobserve(e.target);
+}), { threshold: .15 }) : null;
+document.querySelectorAll('.fade').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+if (!io) fillBoard();
+// Sicherheitsnetz: nach 2,5 s alles sichtbar (Vorschaubilder, alte Browser)
+setTimeout(() => { document.querySelectorAll('.fade').forEach(el => el.classList.add('in')); fillBoard(); }, 2500);
+
+// Funkelnde Sterne über dem Panorama
+(function () {
+  const canvas = document.getElementById('sky');
+  const ctx = canvas.getContext('2d');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const stars = Array.from({ length: 60 }, () => [Math.random(), Math.random() * 0.6, Math.random() * 1.2 + 0.3, Math.random() * 6]);
+  function size() { const r = canvas.getBoundingClientRect(); canvas.width = r.width * devicePixelRatio; canvas.height = r.height * devicePixelRatio; }
+  function draw(t) {
+    const w = canvas.width, h = canvas.height, d = devicePixelRatio;
+    ctx.clearRect(0, 0, w, h);
+    for (const [x, y, s, p] of stars) {
+      const a = 0.25 + 0.55 * Math.max(0, Math.sin(t / 700 + p));
+      ctx.fillStyle = 'rgba(255,240,200,' + a + ')';
+      ctx.beginPath(); ctx.arc(x * w, y * h, s * d, 0, Math.PI * 2); ctx.fill();
+    }
+    if (!reduce) requestAnimationFrame(draw);
+  }
+  size(); addEventListener('resize', size); requestAnimationFrame(draw);
+})();
+</script>
+
+</body>
+</html>
