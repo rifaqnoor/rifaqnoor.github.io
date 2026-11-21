@@ -102,7 +102,7 @@ html[lang="ar"] .eyebrow { letter-spacing: 0; }
 .photo .txt { position: absolute; inset: auto 0 0 0; padding: 22px; color: #fff; background: linear-gradient(0deg, rgba(11,31,27,.94), rgba(11,31,27,0)); }
 .photo .txt h3 { font-size: 1.5rem; }
 .photo .txt p { color: rgba(255,255,255,.88); margin-top: 4px; }
-.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
+.features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 18px; }
 .ico { width: 46px; height: 46px; background: var(--gold); -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat; }
 .feature:hover .ico { background: var(--emerald); }
 html[data-theme="dark"] .feature:hover .ico { background: var(--gold-soft); }
@@ -208,6 +208,8 @@ footer a { color: var(--gold-soft); text-decoration: none; }
         <div class="feature fade"><div class="ico" style="--i:url(icons/qibla.svg)"></div><h3 data-k="f3h"></h3><p data-k="f3p"></p></div>
         <div class="feature fade"><div class="ico" style="--i:url(icons/tasbih.svg)"></div><h3 data-k="f4h"></h3><p data-k="f4p"></p></div>
         <div class="feature fade"><div class="ico" style="--i:url(icons/kalender.svg)"></div><h3 data-k="f6h"></h3><p data-k="f6p"></p></div>
+        <div class="feature fade"><div class="ico" style="--i:url(icons/erkennen.svg)"></div><h3 data-k="f7h"></h3><p data-k="f7p"></p></div>
+        <div class="feature fade"><div class="ico" style="--i:url(icons/player.svg)"></div><h3 data-k="f8h"></h3><p data-k="f8p"></p></div>
       </div>
     </div>
   </section>
@@ -286,6 +288,7 @@ footer a { color: var(--gold-soft); text-decoration: none; }
 <script>
 const T = {
 de: {
+ f7h:"Sure erkennen", f7p:"Halte das Telefon an eine Rezitation oder lies selbst. Die App erkennt Sure und Vers live, direkt auf dem Gerät.", f8h:"Player überall", f8p:"Pause, Vers vor und zurück, Sure oder Juz wählen, Schlaf-Timer, auch auf dem Sperrbildschirm. Einklappbar, damit nichts verdeckt wird.",
  k_eye:"Gemeinsame Khatma", k_h2:"In drei Schritten zur Khatma", k1h:"Khatma anlegen", k1p:"Gib ihr einen Namen und auf Wunsch ein Bild. Ein Konto brauchst du nicht.", k2h:"Link teilen", k2p:"Schick den Einladungslink über WhatsApp, Telegram oder eine andere App.", k3h:"Jeder liest seinen Juz", k3p:"Alle nehmen sich einen freien Juz und markieren ihn als gelesen. Den Stand seht ihr live.", lg1:"gelesen", lg2:"wird gelesen", lg3:"frei",
  nav1:"Funktionen", nav2:"Download", nav3:"Hilfe",
  h1:"Den Quran gemeinsam lesen",
@@ -296,7 +299,7 @@ de: {
  d1h:"Gemeinsame Khatma", d1p:"Khatma anlegen, Link teilen, fertig. Jeder nimmt sich einen freien Juz, alle sehen den Stand live. Ohne Konto und ohne Telefonnummer.",
  d2h:"Mitlesen beim Hören", d2p:"Das gesprochene Wort leuchtet gold, die Seite blättert mit, auch auf dem Sperrbildschirm. Bei Duas wie Kumayl läuft die Markierung Zeile für Zeile mit.",
  f1h:"Gebetszeiten", f1p:"Für deinen Ort, mit 14 Berechnungsarten: Jaʿfari (Leva-Institut, Qom), Universität Teheran, Muslim World League, Umm al-Qura, Diyanet, ISNA, Ägypten, Karachi, UOIF, Golf, Kuwait, Katar, Singapur und Russland. Ein Sonnenbogen zeigt, wo der Tag steht.",
- f2h:"Duas mit Ton", f2p:"Kumayl, Tawassul, Nudba und viele mehr, gelesen von Hussein Ghurayeb.",
+ f2h:"Duas mit Ton", f2p:"Kumayl, Tawassul, Nudba und viele mehr, gelesen von Hussein Ghurayeb. Mit eigener Playlist in deiner Reihenfolge.",
  f3h:"Qibla", f3p:"Ein Kompass, der dir zeigt, in welche Richtung die Kaaba liegt.",
  f4h:"Tasbih", f4p:"Eine Tasbih mit Perlen und Zähler, auch für Fatima-Tasbih.",
  f5h:"Qada nachholen", f5p:"Verpasste Gebete und Fastentage zählen und Schritt für Schritt nachholen. Jahre oder Monate lassen sich auf einmal eintragen.",
@@ -313,7 +316,7 @@ de: {
  q4:"Wie erreiche ich euch?", a4:"Schreib uns an info@venoqauto.de oder sende in der Testfassung ein Bildschirmfoto über TestFlight.",
  ds:"Datenschutz", imp:"Impressum",
  ds_text:`<h4>Kurz gesagt</h4><p>Rifaq Noor braucht kein Konto, zeigt keine Werbung und verwendet keine Analyse- oder Tracking-Dienste. Verantwortlich ist der im Impressum genannte Anbieter.</p>
-<h4>Was auf deinem Gerät bleibt</h4><ul><li>Lesestand, Lesezeichen, Hörstelle, Tasbih, Einstellungen und Khatmas, die du nicht online stellst.</li><li>Dein Standort, für Gebetszeiten und Qibla. Ortsname und Ortssuche ermittelt das Betriebssystem (Apple bzw. Google).</li><li>„Sure erkennen“ nutzt das Mikrofon nur, solange du es startest, über die Spracherkennung des Betriebssystems.</li></ul>
+<h4>Was auf deinem Gerät bleibt</h4><ul><li>Lesestand, Lesezeichen, Hörstelle, Tasbih, Einstellungen und Khatmas, die du nicht online stellst.</li><li>Dein Standort, für Gebetszeiten und Qibla. Ortsname und Ortssuche ermittelt das Betriebssystem (Apple bzw. Google).</li><li>„Sure erkennen“ nutzt das Mikrofon nur, solange du es startest, über die Spracherkennung des Betriebssystems (Apple bzw. Google). Den Abgleich mit dem Quran macht die App auf dem Gerät; nichts davon geht an uns.</li></ul>
 <h4>Quran- und Dua-Inhalte</h4><p>Texte, Übersetzungen und Dua-Aufnahmen kommen über unseren eigenen Server (Cloudflare Workers). Dabei wird technisch deine IP-Adresse verarbeitet; wir speichern keine Protokolle. Die Anbieter der Inhalte sehen nur unseren Server. Quran-Rezitationen lädt die App direkt von den Rezitationsanbietern (Quran.com, EveryAyah), die dabei deine IP-Adresse erhalten.</p>
 <h4>Gemeinsame Khatma (nur wenn du sie online stellst)</h4><p>Dafür nutzen wir Google Firebase (anonyme Anmeldung, Firestore). Gespeichert werden Name der Khatma, dein angegebener Lesername, ein optionales Bild und der Stand der Juz. Wer den Link hat, sieht diese Angaben. Du kannst die Khatma jederzeit löschen. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO. Google kann Daten auch in den USA verarbeiten (EU-Standardvertragsklauseln bzw. EU-US Data Privacy Framework).</p>
 <h4>Testfassungen</h4><p>Bei TestFlight bzw. Firebase App Distribution verarbeiten Apple bzw. Google Angaben zu Installation, Abstürzen und Rückmeldungen, die du selbst sendest.</p>
@@ -322,6 +325,7 @@ de: {
  foot:"© 2026 Rifaq Noor · kostenlos, ohne Werbung"
 },
 en: {
+ f7h:"Recognise a surah", f7p:"Hold your phone near a recitation or recite yourself. The app finds the surah and verse live, right on the device.", f8h:"Player everywhere", f8p:"Pause, next and previous verse, choose a surah or juz, sleep timer, also on the lock screen. Collapsible so nothing is covered.",
  k_eye:"Shared khatma", k_h2:"A khatma in three steps", k1h:"Create a khatma", k1p:"Give it a name and, if you like, a picture. No account needed.", k2h:"Share the link", k2p:"Send the invite link via WhatsApp, Telegram or any other app.", k3h:"Everyone reads a juz", k3p:"Everyone takes a free juz and marks it as read. You all see the progress live.", lg1:"read", lg2:"being read", lg3:"free",
  nav1:"Features", nav2:"Download", nav3:"Help",
  h1:"Read the Quran together",
@@ -332,7 +336,7 @@ en: {
  d1h:"Shared khatma", d1p:"Create a khatma, share the link, done. Everyone picks a free juz and all see the progress live. No account, no phone number.",
  d2h:"Read along while listening", d2p:"The spoken word glows gold and the page turns along, even on the lock screen. For duas like Kumayl the highlight follows line by line.",
  f1h:"Prayer times", f1p:"For your location, with 14 calculation methods: Jaʿfari (Leva Institute, Qom), University of Tehran, Muslim World League, Umm al-Qura, Diyanet, ISNA, Egypt, Karachi, UOIF, Gulf, Kuwait, Qatar, Singapore and Russia. A sun arc shows where the day stands.",
- f2h:"Duas with audio", f2p:"Kumayl, Tawassul, Nudba and many more, recited by Hussein Ghurayeb.",
+ f2h:"Duas with audio", f2p:"Kumayl, Tawassul, Nudba and many more, recited by Hussein Ghurayeb. With your own playlist in your order.",
  f3h:"Qibla", f3p:"A compass that shows you the direction of the Kaaba.",
  f4h:"Tasbih", f4p:"A tasbih with beads and a counter, also for the tasbih of Fatima.",
  f5h:"Make up qada", f5p:"Count missed prayers and fasting days and make them up step by step. Enter years or months at once.",
@@ -353,6 +357,7 @@ en: {
  foot:"© 2026 Rifaq Noor · free, no ads"
 },
 fr: {
+ f7h:"Reconnaître une sourate", f7p:"Approchez le téléphone d’une récitation ou récitez vous-même. L’app trouve la sourate et le verset en direct, sur l’appareil.", f8h:"Lecteur partout", f8p:"Pause, verset suivant ou précédent, choix de la sourate ou du juz, minuterie, aussi sur l’écran verrouillé. Réductible pour ne rien masquer.",
  k_eye:"Khatma partagée", k_h2:"Une khatma en trois étapes", k1h:"Créer une khatma", k1p:"Donnez-lui un nom et, si vous voulez, une image. Aucun compte nécessaire.", k2h:"Partager le lien", k2p:"Envoyez le lien d’invitation par WhatsApp, Telegram ou une autre app.", k3h:"Chacun lit son juz", k3p:"Chacun prend un juz libre et le marque comme lu. Tous voient l’avancement en direct.", lg1:"lu", lg2:"en lecture", lg3:"libre",
  nav1:"Fonctions", nav2:"Télécharger", nav3:"Aide",
  h1:"Lire le Coran ensemble",
@@ -363,7 +368,7 @@ fr: {
  d1h:"Khatma partagée", d1p:"Créez une khatma, partagez le lien, c’est tout. Chacun prend un juz libre, tous voient l’avancement en direct. Sans compte ni numéro de téléphone.",
  d2h:"Lire en écoutant", d2p:"Le mot récité brille en or et la page se tourne, même sur l’écran verrouillé. Pour des douas comme Kumayl, le surlignage suit ligne par ligne.",
  f1h:"Heures de prière", f1p:"Pour votre lieu, avec 14 méthodes de calcul : jaʿfari (Institut Leva, Qom), Université de Téhéran, Ligue islamique mondiale, Umm al-Qura, Diyanet, ISNA, Égypte, Karachi, UOIF, Golfe, Koweït, Qatar, Singapour et Russie. Un arc solaire montre où en est la journée.",
- f2h:"Douas avec audio", f2p:"Kumayl, Tawassul, Nudba et bien d’autres, récitées par Hussein Ghurayeb.",
+ f2h:"Douas avec audio", f2p:"Kumayl, Tawassul, Nudba et bien d’autres, récitées par Hussein Ghurayeb. Avec votre propre playlist, dans votre ordre.",
  f3h:"Qibla", f3p:"Une boussole qui indique la direction de la Kaaba.",
  f4h:"Tasbih", f4p:"Un tasbih avec perles et compteur, aussi pour le tasbih de Fatima.",
  f5h:"Rattraper les qada", f5p:"Comptez les prières et jours de jeûne manqués et rattrapez-les pas à pas. Saisissez des années ou des mois d’un coup.",
@@ -384,6 +389,7 @@ fr: {
  foot:"© 2026 Rifaq Noor · gratuit, sans publicité"
 },
 ar: {
+ f7h:"التعرّف على السورة", f7p:"قرّب الهاتف من التلاوة أو اقرأ بنفسك، فيتعرّف التطبيق على السورة والآية مباشرة على الجهاز.", f8h:"المشغّل في كل مكان", f8p:"إيقاف مؤقت، الآية التالية والسابقة، اختيار السورة أو الجزء، مؤقت النوم، وحتى على شاشة القفل. ويمكن تصغيره كي لا يغطي شيئًا.",
  k_eye:"ختمة جماعية", k_h2:"الختمة في ثلاث خطوات", k1h:"أنشئ ختمة", k1p:"أعطها اسمًا وصورة إن شئت. لا حاجة إلى حساب.", k2h:"شارك الرابط", k2p:"أرسل رابط الدعوة عبر واتساب أو تيليغرام أو أي تطبيق آخر.", k3h:"كل واحد يقرأ جزءًا", k3p:"يختار كل واحد جزءًا متاحًا ويعلّمه مقروءًا، والجميع يرى التقدم مباشرة.", lg1:"مقروء", lg2:"قيد القراءة", lg3:"متاح",
  nav1:"المزايا", nav2:"التحميل", nav3:"المساعدة",
  h1:"لنقرأ القرآن معًا",
@@ -394,7 +400,7 @@ ar: {
  d1h:"ختمة جماعية", d1p:"أنشئ ختمة وشارك الرابط، وهذا كل شيء. يختار كل واحد جزءًا متاحًا، ويرى الجميع التقدم مباشرة. بلا حساب ولا رقم هاتف.",
  d2h:"القراءة مع الاستماع", d2p:"تتوهج الكلمة المتلوّة بالذهبي وتُقلب الصفحة معها، حتى على شاشة القفل. وفي أدعية مثل كميل يتابع التظليل سطرًا بسطر.",
  f1h:"أوقات الصلاة", f1p:"لمكانك، مع 14 طريقة حساب: الجعفري (مؤسسة ليفا، قم)، جامعة طهران، رابطة العالم الإسلامي، أم القرى، ديانت، ISNA، مصر، كراتشي، UOIF، الخليج، الكويت، قطر، سنغافورة وروسيا. ويبيّن قوس شمسي موضع اليوم.",
- f2h:"أدعية بالصوت", f2p:"كميل والتوسل والندبة وغيرها، بصوت حسين غريب.",
+ f2h:"أدعية بالصوت", f2p:"كميل والتوسل والندبة وغيرها، بصوت حسين غريب. مع قائمة تشغيل خاصة بترتيبك.",
  f3h:"القبلة", f3p:"بوصلة تدلك على اتجاه الكعبة.",
  f4h:"التسبيح", f4p:"مسبحة بخرز وعدّاد، ومنها تسبيح فاطمة.",
  f5h:"قضاء الفوائت", f5p:"عدّ الصلوات وأيام الصيام الفائتة واقضها خطوة بخطوة، مع إدخال سنوات أو أشهر دفعة واحدة.",
